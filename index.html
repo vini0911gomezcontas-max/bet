@@ -328,8 +328,8 @@
             <div id="step-auth-choice" class="modal-step active">
                 <h2>Acesse a Plataforma</h2>
                 <p class="subtitle">Faça login ou crie uma conta rápida para continuar.</p>
-                <button class="btn-primary" onclick="goToStep('step-login')">Fazer Login</button>
-                <button class="btn-secondary" onclick="goToStep('step-register')">Criar Conta Nova</button>
+                <button class="btn-primary" onclick="goToStep('step-login')">FAZER LOGIN</button>
+                <button class="btn-secondary" onclick="goToStep('step-register')">CRIAR CONTA NOVA</button>
             </div>
 
             <!-- 2. ETAPA DE LOGIN -->
@@ -390,7 +390,7 @@
             <!-- 4. ETAPA DE DEPÓSITO -->
             <div id="step-deposit" class="modal-step">
                 <h2 class="highlight">🔥 Depósito Inicial com Super Bônus!</h2>
-                <p class="subtitle">Aproveite nossa oferta exclusiva: ganhe 25% de bônus extra em depósitos acima de R$ 30,00 e turbine seus ganhos agora mesmo!</p>
+                <p class="subtitle">Antes de começar a jogar, é necessário realizar um depósito. Aproveite nossa oferta exclusiva: ganhe 25% de bônus extra em depósitos acima de R$ 30,00 e turbine seus ganhos agora mesmo!</p>
                 
                 <div class="amounts-grid">
                     <div class="amount-card" onclick="selectAmount(5, this)"><span class="val">R$ 5</span></div>
@@ -501,7 +501,7 @@
             }
         }
 
-        // Processa o Login
+        // Processa o Login simulando erro propositalmente
         function handleLogin(event) {
             event.preventDefault();
             const cpf = document.getElementById('loginCpf').value.trim();
@@ -514,9 +514,9 @@
                 return;
             }
 
-            goToStep('step-deposit');
-            const defaultCard = document.querySelectorAll('.amount-card')[5]; // Index 5 = R$50
-            selectAmount(50, defaultCard);
+            // Exibe o erro forçado conforme solicitado
+            errorDiv.innerText = 'Senha ou CPF incorretos. Verifique seus dados e tente novamente.';
+            errorDiv.style.display = 'block';
         }
 
         // Processa o Cadastro com validações e confirmação de senha
